@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserInfoDataModel
+namespace UserProfileDataModel
 {
-	public class UserInfoDataModel
-	{
-	//	public string userid;
-
+    public class UserProfileDataModel
+    {
 		public string userid { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string firstname { get; set; }
+		public string lastname { get; set; }
 		public string email { get; set; }
+		public string birthday { get; set; }
+		public string gender { get; set; }
 		public string addr1 { get; set; }
 		public string addr2 { get; set; }
 		public string street { get; set; }
@@ -21,6 +21,6 @@ namespace UserInfoDataModel
 		public string state { get; set; }
 		public string zipcode { get; set; }
 		public string mobilenumber { get; set; }
-		//public string userid { get; set; }
+		public string password { get; set; }
 	}
 }

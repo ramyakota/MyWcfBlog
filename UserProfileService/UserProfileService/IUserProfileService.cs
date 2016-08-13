@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using UserInfoDataModel;
+using UserProfileDataModel;
 
 namespace UserProfileService
 {
@@ -16,14 +17,12 @@ namespace UserProfileService
 		bool SignIn(string userid, string password);
 
 		[OperationContract]
-		UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid);
+		UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid, string password);
 
 		[OperationContract]
-		 bool SignUp(string userid, string firstname, string lastname, string email, string birthday, string gender,
-			string addr1, string addr2, string street, string city, string state, string zip, string mobile, string password);
+		 bool SignUp(UserProfileDataModel.UserProfileDataModel userProfileDataModel);
 
 		[OperationContract]
-		bool Edit(string userid, string firstname, string lastname, string email,
-			string addr1, string addr2, string street, string city, string state, string zip, string mobile);
+		bool Edit(UserInfoDataModel.UserInfoDataModel userdatamodel);
 	}
 }

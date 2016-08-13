@@ -101,10 +101,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Properties\DataSources\UserInfoDataModel.UserInfoDataModel.datasource" />
     <None Include="Service References\UserProfileService\item.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UserProfileService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProfileService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserProfileService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UserProfileService\UserProfileService.wsdl" />
@@ -187,6 +194,10 @@
     <ProjectReference Include="..\..\UserInfoDataModel\UserInfoDataModel.csproj">
       <Project>{3e8e3088-72c1-4612-ade8-c6d0aee300c9}</Project>
       <Name>UserInfoDataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserProfileDataModel\UserProfileDataModel.csproj">
+      <Project>{b4936e9f-432d-4752-82df-1bcaca0aa615}</Project>
+      <Name>UserProfileDataModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -22,22 +22,22 @@ namespace WebApplicationNew.UserProfileService {
         System.Threading.Tasks.Task<bool> SignInAsync(string userid, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserProfileDetails", ReplyAction="http://tempuri.org/IUserProfileService/GetUserProfileDetailsResponse")]
-        UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid);
+        UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/GetUserProfileDetails", ReplyAction="http://tempuri.org/IUserProfileService/GetUserProfileDetailsResponse")]
-        System.Threading.Tasks.Task<UserInfoDataModel.UserInfoDataModel> GetUserProfileDetailsAsync(string userid);
+        System.Threading.Tasks.Task<UserInfoDataModel.UserInfoDataModel> GetUserProfileDetailsAsync(string userid, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/SignUp", ReplyAction="http://tempuri.org/IUserProfileService/SignUpResponse")]
-        bool SignUp(string userid, string firstname, string lastname, string email, string birthday, string gender, string addr1, string addr2, string street, string city, string state, string zip, string mobile, string password);
+        bool SignUp(UserProfileDataModel.UserProfileDataModel userProfileDataModel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/SignUp", ReplyAction="http://tempuri.org/IUserProfileService/SignUpResponse")]
-        System.Threading.Tasks.Task<bool> SignUpAsync(string userid, string firstname, string lastname, string email, string birthday, string gender, string addr1, string addr2, string street, string city, string state, string zip, string mobile, string password);
+        System.Threading.Tasks.Task<bool> SignUpAsync(UserProfileDataModel.UserProfileDataModel userProfileDataModel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/Edit", ReplyAction="http://tempuri.org/IUserProfileService/EditResponse")]
-        bool Edit(string userid, string firstname, string lastname, string email, string addr1, string addr2, string street, string city, string state, string zip, string mobile);
+        bool Edit(UserInfoDataModel.UserInfoDataModel userdatamodel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserProfileService/Edit", ReplyAction="http://tempuri.org/IUserProfileService/EditResponse")]
-        System.Threading.Tasks.Task<bool> EditAsync(string userid, string firstname, string lastname, string email, string addr1, string addr2, string street, string city, string state, string zip, string mobile);
+        System.Threading.Tasks.Task<bool> EditAsync(UserInfoDataModel.UserInfoDataModel userdatamodel);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -75,28 +75,28 @@ namespace WebApplicationNew.UserProfileService {
             return base.Channel.SignInAsync(userid, password);
         }
         
-        public UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid) {
-            return base.Channel.GetUserProfileDetails(userid);
+        public UserInfoDataModel.UserInfoDataModel GetUserProfileDetails(string userid, string password) {
+            return base.Channel.GetUserProfileDetails(userid, password);
         }
         
-        public System.Threading.Tasks.Task<UserInfoDataModel.UserInfoDataModel> GetUserProfileDetailsAsync(string userid) {
-            return base.Channel.GetUserProfileDetailsAsync(userid);
+        public System.Threading.Tasks.Task<UserInfoDataModel.UserInfoDataModel> GetUserProfileDetailsAsync(string userid, string password) {
+            return base.Channel.GetUserProfileDetailsAsync(userid, password);
         }
         
-        public bool SignUp(string userid, string firstname, string lastname, string email, string birthday, string gender, string addr1, string addr2, string street, string city, string state, string zip, string mobile, string password) {
-            return base.Channel.SignUp(userid, firstname, lastname, email, birthday, gender, addr1, addr2, street, city, state, zip, mobile, password);
+        public bool SignUp(UserProfileDataModel.UserProfileDataModel userProfileDataModel) {
+            return base.Channel.SignUp(userProfileDataModel);
         }
         
-        public System.Threading.Tasks.Task<bool> SignUpAsync(string userid, string firstname, string lastname, string email, string birthday, string gender, string addr1, string addr2, string street, string city, string state, string zip, string mobile, string password) {
-            return base.Channel.SignUpAsync(userid, firstname, lastname, email, birthday, gender, addr1, addr2, street, city, state, zip, mobile, password);
+        public System.Threading.Tasks.Task<bool> SignUpAsync(UserProfileDataModel.UserProfileDataModel userProfileDataModel) {
+            return base.Channel.SignUpAsync(userProfileDataModel);
         }
         
-        public bool Edit(string userid, string firstname, string lastname, string email, string addr1, string addr2, string street, string city, string state, string zip, string mobile) {
-            return base.Channel.Edit(userid, firstname, lastname, email, addr1, addr2, street, city, state, zip, mobile);
+        public bool Edit(UserInfoDataModel.UserInfoDataModel userdatamodel) {
+            return base.Channel.Edit(userdatamodel);
         }
         
-        public System.Threading.Tasks.Task<bool> EditAsync(string userid, string firstname, string lastname, string email, string addr1, string addr2, string street, string city, string state, string zip, string mobile) {
-            return base.Channel.EditAsync(userid, firstname, lastname, email, addr1, addr2, street, city, state, zip, mobile);
+        public System.Threading.Tasks.Task<bool> EditAsync(UserInfoDataModel.UserInfoDataModel userdatamodel) {
+            return base.Channel.EditAsync(userdatamodel);
         }
     }
 }

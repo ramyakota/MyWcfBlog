@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProfileWebsite", "UserP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInfoDataModel", "..\UserInfoDataModel\UserInfoDataModel.csproj", "{3E8E3088-72C1-4612-ADE8-C6D0AEE300C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserProfileDataModel", "UserProfileDataModel\UserProfileDataModel.csproj", "{B4936E9F-432D-4752-82DF-1BCACA0AA615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3E8E3088-72C1-4612-ADE8-C6D0AEE300C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8E3088-72C1-4612-ADE8-C6D0AEE300C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E8E3088-72C1-4612-ADE8-C6D0AEE300C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4936E9F-432D-4752-82DF-1BCACA0AA615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4936E9F-432D-4752-82DF-1BCACA0AA615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4936E9F-432D-4752-82DF-1BCACA0AA615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4936E9F-432D-4752-82DF-1BCACA0AA615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3183B39-99AF-41AA-87DF-11190CEB3868}</ProjectGuid>
+    <ProjectGuid>{B4936E9F-432D-4752-82DF-1BCACA0AA615}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SignUpWcf</RootNamespace>
-    <AssemblyName>SignUpWcf</AssemblyName>
+    <RootNamespace>UserProfileDataModel</RootNamespace>
+    <AssemblyName>UserProfileDataModel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,8 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,22 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUserProfileService.cs" />
+    <Compile Include="UserProfileDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserProfileService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\UserInfoDataModel\UserInfoDataModel.csproj">
-      <Project>{3e8e3088-72c1-4612-ade8-c6d0aee300c9}</Project>
-      <Name>UserInfoDataModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UserProfileDataModel\UserProfileDataModel.csproj">
-      <Project>{d69a3d14-1e1f-4ae2-b340-9aeb3bbc8ffa}</Project>
-      <Name>UserProfileDataModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,8 +20,10 @@ namespace WebApplicationNew
 			string userid = txtUn.Text;
 			string password = txtPwd.Text;
 			UserProfileServiceClient client = new UserProfileServiceClient("BasicHttpBinding_IUserProfileService");
-			bool res = client.SignIn(userid, password);
-			if(res == true)
+			UserInfoDataModel.UserInfoDataModel result = client.GetUserProfileDetails(userid, password);
+		//	bool res = client.SignIn(userid,password);
+			Session["UserInfoDataModel"] = result;
+			if (result!=null && !string.IsNullOrEmpty(result.userid))
 			{
 				Response.Redirect("UserInfoPage.aspx");
 			}

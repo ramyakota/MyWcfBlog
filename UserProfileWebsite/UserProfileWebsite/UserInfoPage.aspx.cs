@@ -14,47 +14,40 @@ namespace WebApplicationNew
 {
 	public partial class UserInfoPage : System.Web.UI.Page
 	{
-		
+
 		public void DisplayFields()
 		{
 			try
 			{
-				//
-				UserProfileServiceClient client = new UserProfileServiceClient("BasicHttpBinding_IUserProfileService");
-				UserInfoDataModel.UserInfoDataModel res = client.GetUserProfileDetails("123");
-				txtfirstname.Text = res.FirstName;//(dr["firstname"].ToString());
 
-				//
-				string cs = ConfigurationManager.ConnectionStrings["users"].ConnectionString;
-				SqlConnection conn = new SqlConnection(cs);
-				SqlCommand cmd = new SqlCommand("select userid,firstname,lastname,email,addr1,addr2,street,city,state,zipcode,mobilenumber from usersinfo", conn);
-			conn.Open();
-			SqlDataReader dr = cmd.ExecuteReader();
-			while (dr.Read())
-			{
-				txtuserid.Text = (dr["userid"].ToString());
-					txtfirstname.Text = res.FirstName;//(dr["firstname"].ToString());
-				txtlastname.Text = (dr["lastname"].ToString());
-				txtemail.Text = (dr["email"].ToString());
-				//dropdownmonth.Text = (dr["userid"].ToString());
-				//dropdownday.Text = (dr["userid"].ToString());
-				//dropdownyear.Text = (dr["userid"].ToString());
-				//txtgender.SelectedItem.Text = (dr["gender"].ToString());
-				txtaddr1.Text = (dr["addr1"].ToString());
-				txtaddr2.Text = (dr["addr2"].ToString());
-				txtstreet.Text = (dr["street"].ToString());
-				txtcity.Text = (dr["city"].ToString());
-				txtstate.Text = (dr["state"].ToString());
-				txtzip.Text = (dr["zipcode"].ToString());
-				txtmobile.Text = (dr["mobilenumber"].ToString());
+				if (Session["UserInfoDataModel"] != null)
+				{
+					UserInfoDataModel.UserInfoDataModel res = Session["UserInfoDataModel"] as UserInfoDataModel.UserInfoDataModel;
+					txtuserid.Text = res.userid;
+					//txtfirstname.Text = res.FirstName;//(dr["firstname"].ToString());
+					//txtuserid.Text = res.userid;
+					txtfirstname.Text = res.FirstName;
+					txtlastname.Text = res.LastName;
+					txtemail.Text = res.email;
+					//dropdownmonth.Text = (dr["userid"].ToString());
+					//dropdownday.Text = (dr["userid"].ToString());
+					//dropdownyear.Text = (dr["userid"].ToString());
+					//txtgender.SelectedItem.Text = (dr["gender"].ToString());
+					txtaddr1.Text = res.addr1;
+					txtaddr2.Text = res.addr2;
+					txtstreet.Text = res.street;
+					txtcity.Text = res.city;
+					txtstate.Text = res.state;
+					txtzip.Text = res.zipcode;
+					txtmobile.Text = res.mobilenumber;
+				}
 			}
-			conn.Close();
-		}
-		catch (Exception ex)
+			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
-}
+		}
+				
 	protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!IsPostBack)
@@ -65,23 +58,24 @@ namespace WebApplicationNew
 
 		protected void btnedit_Click(object sender, EventArgs e)
 		{
-			string userid = txtuserid.Text;
-			string firstname = txtfirstname.Text;
-			string lastname = txtlastname.Text;
-			string email = txtemail.Text;
+			UserInfoDataModel.UserInfoDataModel data = new UserInfoDataModel.UserInfoDataModel();
+			data.userid = txtuserid.Text;
+			data.FirstName = txtfirstname.Text;
+			data.LastName = txtlastname.Text;
+			data.email = txtemail.Text;
 			//string birthday = Convert.ToString(dt2);
 			//string gender = txtgender.Text;
-			string addr1 = txtaddr1.Text;
-			string addr2 = txtaddr2.Text;
-			string street = txtstreet.Text;
-			string city = txtcity.Text;
-			string state = txtstate.Text;
-			string zip = txtzip.Text;
-			string mobile = txtmobile.Text;
+			data.addr1 = txtaddr1.Text;
+			data.addr2 = txtaddr2.Text;
+			data.street = txtstreet.Text;
+			data.city = txtcity.Text;
+			data.state = txtstate.Text;
+			data.zipcode = txtzip.Text;
+			data.mobilenumber = txtmobile.Text;
 
 			UserProfileServiceClient client = new UserProfileServiceClient("BasicHttpBinding_IUserProfileService");
-			bool res = client.Edit(userid, firstname, lastname, email,
-			 addr1, addr2, street, city, state, zip, mobile);
+			
+			bool res = client.Edit(data);
 			if (res == true)
 			{
 				Response.Redirect("MainPage.aspx");
